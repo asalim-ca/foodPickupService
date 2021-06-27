@@ -35,6 +35,14 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
+//New routes
+const customersRoutes = require("./routes/customers");
+const dishesRoutes = require("./routes/dishes");
+const ordersRoutes = require("./routes/orders");
+//stretch
+const orderRatingsRoutes = require("./routes/order_ratings");
+
+
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
