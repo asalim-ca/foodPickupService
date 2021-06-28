@@ -29,6 +29,7 @@ app.use(express.static("public"));
 const customersRoutes = require("./routes/customers");
 const dishesRoutes = require("./routes/dishes");
 const ordersRoutes = require("./routes/orders");
+const loginRoutes = require("./routes/login");
 
 //stretch
 // const orderRatingsRoutes = require("./routes/order_ratings");
@@ -37,6 +38,7 @@ const ordersRoutes = require("./routes/orders");
 app.use("/api/customers", customersRoutes);
 app.use("/api/dishes", dishesRoutes);
 app.use("/api/orders", ordersRoutes);
+app.use("/login", loginRoutes);
 
 //stretch
 // app.use("/api/order_ratings", orderRatingsRoutes);
