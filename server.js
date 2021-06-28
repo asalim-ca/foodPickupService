@@ -25,7 +25,7 @@ app.use("/styles", sass({
 }));
 app.use(express.static("public"));
 
-//New routes
+//Required Routes
 const customersRoutes = require("./routes/customers");
 const dishesRoutes = require("./routes/dishes");
 const ordersRoutes = require("./routes/orders");
@@ -33,7 +33,7 @@ const ordersRoutes = require("./routes/orders");
 //stretch
 // const orderRatingsRoutes = require("./routes/order_ratings");
 
-// Note: mount other resources here, using the same pattern above
+//Routes
 app.use("/api/customers", customersRoutes);
 app.use("/api/dishes", dishesRoutes);
 app.use("/api/orders", ordersRoutes);
