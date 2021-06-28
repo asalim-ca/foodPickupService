@@ -1,0 +1,15 @@
+INSERT INTO dishes (name, category, prep_duration, price) VALUES ('Margherita', 'pizza', 15, 1299);
+INSERT INTO dishes (name, category, prep_duration, price) VALUES ('fromaggio', 'pizza', 17, 1499);
+INSERT INTO dishes (name, category, prep_duration, price) VALUES ('carne', 'pizza', 17, 1699);
+INSERT INTO dishes (name, category, prep_duration, price) VALUES ('lasagna', 'pasta', 25, 1999);
+INSERT INTO dishes (name, category, prep_duration, price) VALUES ('ravioli', 'pasta', 20, 1799);
+INSERT INTO dishes (name, category, prep_duration, price) VALUES ('spaghetti', 'pasta', 17, 1499);
+INSERT INTO dishes (name, category, prep_duration, price) VALUES ('soup of the chef', 'starter', 10, 999);
+INSERT INTO dishes (name, category, prep_duration, price) VALUES ('bruchetta', 'starter', 10, 1099);
+INSERT INTO dishes (name, category, prep_duration, price) VALUES ('garlic bread', 'starter', 7, 799);
+INSERT INTO dishes (name, category, prep_duration, price) VALUES ('gelato', 'dessert', 5, 899);
+INSERT INTO dishes (name, category, prep_duration, price) VALUES ('panna cotta', 'dessert', 5, 899);
+INSERT INTO dishes (name, category, prep_duration, price) VALUES ('tiramisu', 'dessert', 5, 999);
+INSERT INTO dishes (name, category, prep_duration, price) VALUES ('soda', 'drink', 2, 399);
+INSERT INTO dishes (name, category, prep_duration, price) VALUES ('beer', 'drink', 2, 599);
+INSERT INTO dishes (name, category, prep_duration, price) VALUES ('wine', 'drink', 5, 1199);

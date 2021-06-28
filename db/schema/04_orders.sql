@@ -5,6 +5,6 @@ CREATE TABLE orders (
   created_at TIMESTAMP NOT NULL,
   finished_at TIMESTAMP NOT NULL,
   instructions TEXT,
-  dish_id INT,
-  customer_id INT
+  dish_id INT NOT NULL,
+  customer_id INT NOT NULL
 );
