@@ -7,7 +7,14 @@ const getAllCustomers = () => {
     });
 };
 
+const getOneCustomer = (id) => {
+  return db.query('SELECT * FROM customers WHERE id = $1', [id])
+    .then((response) => {
+      return response.rows[0];
+    });
+};
 
 module.exports = {
-  getAllCustomers
+  getAllCustomers,
+  getOneCustomer
 };
