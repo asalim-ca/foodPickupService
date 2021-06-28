@@ -14,6 +14,7 @@ const morgan = require('morgan');
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
 const db = new Pool(dbParams);
+console.log(dbParams);
 db.connect();
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -47,11 +48,11 @@ const orderRatingsRoutes = require("./routes/order_ratings");
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
-app.use("/api/customers", widgetsRoutes(db));
-app.use("/api/dishes", widgetsRoutes(db));
-app.use("/api/orders", widgetsRoutes(db));
+// app.use("/api/customers", customersRoutes(db));
+app.use("/api/dishes", dishesRoutes(db));
+// app.use("/api/orders", ordersRoutes(db));
 //stretch
-app.use("/api/order_ratings", widgetsRoutes(db));
+// app.use("/api/order_ratings", orderRatingsRoutes(db));
 
 // Home page
 // Warning: avoid creating more routes in this file!
