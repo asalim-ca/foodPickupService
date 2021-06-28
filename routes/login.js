@@ -7,11 +7,29 @@
 
 const express = require('express');
 const router  = express.Router();
+const findUser = require('../db/queries/customers-queries');
 
 //GET
 router.get("/", (req, res) => {
-  res.render("login");
+
+  res.render("login")
+
 });
+
+router.post("/", (req, res) => {
+  findUser.findCustomerByEmail(req.body.email)
+    .then((response) => {
+      if (response) {
+        return res.redirect("/")
+      }else{
+        return res.send("not logged in")
+      }
+    });
+})
+
+// router.get("/admin", (req, res) => {
+//   res.render("login");
+// });
 
 
 module.exports = router;

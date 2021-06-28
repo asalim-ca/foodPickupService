@@ -9,6 +9,8 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require('morgan');
+// const cookieSession = require("cookie-session");
+
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -24,6 +26,11 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
+
+// app.use(cookieSession({
+//   name: 'session',
+//   keys: ['key1']
+// }));
 
 //Required Routes
 const customersRoutes = require("./routes/customers");

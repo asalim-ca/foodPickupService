@@ -7,6 +7,16 @@ const getAllCustomers = () => {
     });
 };
 
+const findCustomerByEmail = (email) => {
+  return db.query('SELECT * FROM customers WHERE email = $1;', [email])
+    .then((response) => {
+      if (response.rows.length === 0) {
+        return false;
+      }
+        return true;
+    });
+};
+
 const getOneCustomer = (id) => {
   return db.query('SELECT * FROM customers WHERE id = $1', [id])
     .then((response) => {
@@ -16,5 +26,6 @@ const getOneCustomer = (id) => {
 
 module.exports = {
   getAllCustomers,
-  getOneCustomer
+  getOneCustomer,
+  findCustomerByEmail
 };
