@@ -17,5 +17,13 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/:id", (req, res) => {
+  customersQueries.getOneCustomer(req.params.id)
+    .then((customers) => {
+      res.json(customers);
+    });
+});
+
+
 
 module.exports = router;
