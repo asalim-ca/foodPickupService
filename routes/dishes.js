@@ -7,19 +7,21 @@
 
 const express = require('express');
 const router  = express.Router();
+const dishQueries = require('../db/queries/dish-queries');
 
-module.exports = (db) => {
-  router.get("/", (req, res) => {
-    db.query(`SELECT * FROM dishes;`)
-      .then(data => {
-        const dishes = data.rows;
-        res.json({ dishes });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  });
-  return router;
-};
+//GET
+router.get("/", (req, res) => {
+  dishQueries.getAllDishes()
+    .then((dishes) => {
+      res.json(dishes);
+    });
+});
+
+router.get("/:id", (req, res) => {
+  dishQueries.getOneDish(req.params.id)
+    .then((dishes) => {
+      res.json(dishes);
+    });
+});
+
+module.exports = router;
