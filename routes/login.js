@@ -7,16 +7,11 @@
 
 const express = require('express');
 const router  = express.Router();
-const customersQueries = require('../db/queries/customers-queries');
 
 //GET
 router.get("/", (req, res) => {
-  customersQueries.getAllCustomers()
-    .then((customers) => {
-      res.json(customers);
-    });
+  res.render("login");
 });
-
 
 
 module.exports = router;
