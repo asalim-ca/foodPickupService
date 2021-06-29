@@ -11,9 +11,16 @@ const ordersQueries = require('../db/queries/orders-queries');
 
 //GET
 router.get("/", (req, res) => {
-  ordersQueries.getAllOrders()
+  ordersQueries.getAllOrders(req.session.userId)
     .then((orders) => {
       res.json(orders);
+    });
+});
+
+router.get("/:id", (req, res) => {
+  ordersQueries.getSpecificOrder(req.session.userId, req.params.id)
+    .then((order) => {
+      res.json(order);
     });
 });
 
