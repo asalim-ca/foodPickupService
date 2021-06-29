@@ -1,4 +1,4 @@
-INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-04-28 11:06:47', '2021-04-28 11:36:42', 1, 9);
+INSERT INTO orders (created_at, dish_id, customer_id) VALUES ('2021-04-28 11:06:47', 1, 9);
 INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-05-02 12:20:35', '2021-05-02 12:50:42', 10, 6);
 INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-05-04 14:24:36', '2021-05-04 14:57:24', 12, 12);
 INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-05-09 13:34:23', '2021-05-09 14:04:13', 2, 11);

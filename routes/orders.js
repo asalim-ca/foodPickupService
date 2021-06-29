@@ -11,7 +11,7 @@ const ordersQueries = require('../db/queries/orders-queries');
 
 //GET
 router.get("/", (req, res) => {
-  ordersQueries.getAllOrders(req.session.userId)
+  ordersQueries.getAllOrdersForCustomer(req.session.userId)
     .then((orders) => {
       res.json(orders);
     });
