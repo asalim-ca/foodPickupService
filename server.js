@@ -37,6 +37,7 @@ const customersRoutes = require("./routes/customers");
 const dishesRoutes = require("./routes/dishes");
 const ordersRoutes = require("./routes/orders");
 const loginRoutes = require("./routes/login");
+const findUser = require('./db/queries/customers-queries')
 
 //stretch
 // const orderRatingsRoutes = require("./routes/order_ratings");
@@ -54,7 +55,12 @@ app.use("/login", loginRoutes);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  findUser.getOneCustomer(req.session.userId)
+    .then((response) => {
+      const template = {user: response}
+    res.render("index", template);
+    })
+
 });
 
 app.listen(PORT, () => {
