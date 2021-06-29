@@ -8,10 +8,20 @@
 const express = require('express');
 const router  = express.Router();
 const findUser = require('../db/queries/customers-queries');
+// const cookieSession = require("cookie-session");
+// router.use(cookieSession({
+//   name: 'session',
+//   keys: ['key1']
+// }));
+
 
 //GET
 router.get("/", (req, res) => {
+  if (req.session) {
+    console.log(req.session.loginType)
+    console.log(req.session.userId)
 
+  }
   res.render("login")
 
 });
@@ -19,7 +29,11 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   findUser.findCustomerByEmail(req.body.email)
     .then((response) => {
+      console.log(response.id)
       if (response) {
+        req.session.loginType = "customer";
+        req.session.userId = response.id;
+
         return res.redirect("/")
       }else{
         return res.send("not logged in")
