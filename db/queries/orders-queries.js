@@ -1,6 +1,6 @@
 const db = require('../db');
 
-const getAllOrders = (id) => {
+const getAllOrdersForCustomer = (id) => {
   return db.query('SELECT * FROM orders JOIN customers ON customer_id = customers.id WHERE customers.id = $1;', [id])
     .then((response) => {
       return response.rows;
@@ -15,7 +15,15 @@ const getSpecificOrder = (customerId, orderId) => {
     });
 };
 
+const getAllUnfulfilledOrders = () => {
+  return db.query('SELECT * FROM orders WHERE finished_at IS NULL;')
+    .then((response) => {
+      return response.rows;
+    });
+};
+
 module.exports = {
-  getAllOrders,
-  getSpecificOrder
+  getAllUnfulfilledOrders,
+  getSpecificOrder,
+  getAllOrdersForCustomer
 };

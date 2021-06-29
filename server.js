@@ -37,7 +37,10 @@ const customersRoutes = require("./routes/customers");
 const dishesRoutes = require("./routes/dishes");
 const ordersRoutes = require("./routes/orders");
 const loginRoutes = require("./routes/login");
-const findUser = require('./db/queries/customers-queries')
+const adminRoutes = require("./routes/admin");
+const findUser = require('./db/queries/customers-queries');
+const adminQueries = require('./db/queries/admin-queries');
+
 
 //stretch
 // const orderRatingsRoutes = require("./routes/order_ratings");
@@ -47,6 +50,7 @@ app.use("/api/customers", customersRoutes);
 app.use("/api/dishes", dishesRoutes);
 app.use("/api/orders", ordersRoutes);
 app.use("/login", loginRoutes);
+app.use("/admin", adminRoutes);
 
 //stretch
 // app.use("/api/order_ratings", orderRatingsRoutes);
@@ -55,11 +59,20 @@ app.use("/login", loginRoutes);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  findUser.getOneCustomer(req.session.userId)
+  if (req.session.loginType === "admin") {
+    adminQueries.findAdminbyId(req.session.userId)
     .then((response) => {
-      const template = {user: response}
+      const template = {user: response, loginType: "admin"}
+      res.render("index", template);
+    })
+  }else{
+    findUser.getOneCustomer(req.session.userId)
+    .then((response) => {
+      const template = {user: response, loginType: "customer"}
     res.render("index", template);
     })
+  }
+
 
 });
 

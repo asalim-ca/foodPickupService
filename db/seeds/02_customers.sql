@@ -1,9 +1,3 @@
-INSERT INTO customers (name, phone, email) VALUES ('Travis Travis', '(386)-555-2109', 'travis.west@example.com');
-INSERT INTO customers (name, phone, email) VALUES ('Warren Warren', '02-3909-2054', 'warren.duncan@example.com');
-INSERT INTO customers (name, phone, email) VALUES ('Julius Julius', '075 665 15 34', 'julius.fernandez@example.com');
-INSERT INTO customers (name, phone, email) VALUES ('Virginia Virginia', '967-349-394', 'virginia.martin@example.com');
-INSERT INTO customers (name, phone, email) VALUES ('Andreo Andreo', '(12) 9550-0782', 'andreo.cardoso@example.com');
-INSERT INTO customers (name, phone, email) VALUES ('Xaviera Xaviera', '(637)-910-4715', 'xaviera.breeuwer@example.com');
 INSERT INTO customers (name, phone, email) VALUES ('Aurelino Aurelino', '(64) 3139-0173', 'aurelino.moreira@example.com');
 INSERT INTO customers (name, phone, email) VALUES ('Fred Fred', '013873 76193', 'fred.castro@example.com');
 INSERT INTO customers (name, phone, email) VALUES ('Jonas Jonas', '85996858', 'jonas.poulsen@example.com');
