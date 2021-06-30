@@ -1,7 +1,7 @@
 const db = require('../db');
 
 const getAllOrdersForCustomer = (id) => {
-  return db.query('SELECT * FROM orders JOIN customers ON customer_id = customers.id WHERE customers.id = $1;', [id])
+  return db.query('SELECT orders.id as order_id, * FROM orders JOIN customers ON customer_id = customers.id JOIN dishes ON dish_id = dishes.id WHERE customers.id = $1;', [id])
     .then((response) => {
       return response.rows;
     });
