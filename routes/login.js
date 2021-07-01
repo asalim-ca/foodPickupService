@@ -23,14 +23,15 @@ router.get("/", (req, res) => {
 
   }
   res.render("login")
-
 });
+
+
 
 router.post("/", (req, res) => {
   findUser.findCustomerByEmail(req.body.email)
     .then((response) => {
-      console.log(response.id)
       if (response) {
+        console.log('response.id',response.id)
         req.session.loginType = "customer";
         req.session.userId = response.id;
 

@@ -3,10 +3,10 @@ INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021
 INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-05-04 14:24:36', '2021-05-04 14:57:24', 12, 12);
 INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-05-09 13:34:23', '2021-05-09 14:04:13', 2, 11);
 INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-05-14 10:15:59', '2021-05-14 10:35:36', 6, 13);
-INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-05-16 11:14:54', '2021-05-16 11:37:38', 12, 10);
+INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-05-16 11:14:54', '2021-05-16 11:37:38', 12, 1);
 INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-05-20 09:46:24', '2021-05-20 10:07:15', 3, 16);
-INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-05-26 16:34:58', '2021-05-26 17:01:00', 13, 13);
-INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-05-30 14:43:43', '2021-05-30 17:01:00', 13, 13);
+INSERT INTO orders (created_at, dish_id, customer_id) VALUES ('2021-05-26 16:34:58', 13, 13);
+INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-05-30 14:43:43', '2021-05-30 17:01:00', 13, 1);
 INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-06-01 00:00:01', '2021-06-01 00:10:01', 2, 5);
 INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-06-02 09:03:04', '2021-06-02 09:08:00', 2, 5);
 INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-06-02 12:00:00', '2021-06-02 12:15:03', 1, 6);
@@ -15,7 +15,7 @@ INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021
 INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-06-04 12:02:16', '2021-06-04 12:10:01', 2, 5);
 INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-06-05 16:18:45', '2021-06-05 16:30:15', 7, 13);
 INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-06-06 18:33:46', '2021-06-06 18:48:07', 1, 5);
-INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-06-14 14:51:36', '2021-06-14 15:01:07', 9, 17);
+INSERT INTO orders (created_at, dish_id, customer_id) VALUES ('2021-06-14 14:51:36', 9, 1);
 INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-06-21 16:54:38', '2021-06-21 17:09:36', 4, 19);
 INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-06-25 08:31:45', '2021-06-25 08:53:22', 7, 8);
 INSERT INTO orders (created_at, finished_at, dish_id, customer_id) VALUES ('2021-06-28 11:25:56', '2021-06-29 12:03:34', 5, 6);

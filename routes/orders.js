@@ -24,5 +24,12 @@ router.get("/:id", (req, res) => {
     });
 });
 
+router.get("/unfulfilled", (req, res) => {
+ordersQueries.getAllUnfulfilledOrdersForCustomer(req.session.userId)
+  .then((response) => {
+    console.log(response);
+    res.json(response);
+  });
+});
 
 module.exports = router;

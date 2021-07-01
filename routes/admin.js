@@ -34,12 +34,13 @@ router.post("/", (req, res) => {
 
 
 //Get unfulfilled orders
+/*
 router.get("/unfulfilledorders", (req, res) => {
   ordersQueries.getAllUnfulfilledOrders()
     .then((response) => {
       res.json(response);
     })
-})
+})*/
 
 
 module.exports = router;

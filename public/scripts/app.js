@@ -52,7 +52,7 @@ $(document).ready(function() {
     event.preventDefault();
 
     const params = {
-      url: `/admin/unfulfilledorders`,
+      url: `/api/orders/unfulfilled`,
       method: "GET",
       data: $(this).serialize()
     };
@@ -158,24 +158,24 @@ $(document).ready(function() {
   }
 
   // Posts form to /api/dishes (Not working right now) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  ('.new-dish-form').submit(function (event) {
-    event.preventDefault();
-    const params = {
-      url: "/api/dishes/",
-      method: "POST",
-      data: $(this).serialize()
-    };
+  // ('.new-dish-form').submit(function (event) {
+  //   event.preventDefault();
+  //   const params = {
+  //     url: "/api/dishes/",
+  //     method: "POST",
+  //     data: $(this).serialize()
+  //   };
 
-    $.ajax(params)
-    .then((dishes) => {
-      loadMenu(dishes);
-      console.log(dishes);
-    })
-    .catch((error) => {
-      console.error(error);
+  //   $.ajax(params)
+  //   .then((dishes) => {
+  //     loadMenu(dishes);
+  //     console.log(dishes);
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
 
-    })
-  })
+  //   })
+  // })
 
 
 
