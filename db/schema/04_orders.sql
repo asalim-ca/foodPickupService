@@ -2,9 +2,15 @@ DROP TABLE IF EXISTS orders CASCADE;
 
 CREATE TABLE orders (
   id SERIAL PRIMARY KEY NOT NULL,
-  created_at TIMESTAMP NOT NULL,
-  finished_at TIMESTAMP NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW(),
+  completed_at TIMESTAMP,
+  customer_id INT REFERENCES customers(id) ON DELETE CASCADE NOT NULL
+);
+
+CREATE TABLE dish_orders (
+  id SERIAL PRIMARY KEY NOT NULL,
+  ready_at TIMESTAMP,
   instructions TEXT,
-  dish_id INT NOT NULL,
-  customer_id INT NOT NULL
+  order_id INT REFERENCES orders(id) ON DELETE CASCADE NOT NULL,
+  dish_id INT REFERENCES dishes(id) ON DELETE CASCADE NOT NULL
 );
