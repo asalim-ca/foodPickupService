@@ -42,8 +42,8 @@ $(document).ready(function() {
     });
   };
 
-////////////////////
 
+  // Gets the unfulfilled orders (Working for everyone right now, has to only work for admin)
   $('#all-unfulfilled-orders').submit(function(event) {
     $('#orders').empty();
     $('#menu').empty();
@@ -62,11 +62,9 @@ $(document).ready(function() {
         renderAllOrders(unfulfilledorders);
         console.log(unfulfilledorders);
       });
-
-    //$('#orders').append("<h1>orders go here</h1>");
-
   });
-////////////////////
+
+
 
 
   $('#all-orders').submit(function(event) {
@@ -114,5 +112,71 @@ $(document).ready(function() {
     $('#menu').append("<h1>menu go here</h1>");
 
   });
+
+
+
+
+
+
+  //Form to create a dish
+  const $newDishForm = $(`
+  <form action="/api/dishes" method="POST" id="new-dish-form" class="new-dish-form">
+      <div class="new-dish-form_field-wrapper">
+        <label for="new-dish-form_name">Name</label>
+        <input type="text" name="name" placeholder="Name" id="new-dish-form_name">
+
+        <label for="new-dish-form_category">Category</label>
+        <input type="text" name="category" placeholder="Category" id="new-dish-form_category">
+
+        <label for="new-dish-form_price">Price</label>
+        <input type="number" name="price" placeholder="$$$" id="new-dish-form_price">
+
+        <button type="submit"> Create </button>
+      </div>
+    </form>
+  `)
+
+
+  // Creates simple form to create a dish
+  $('#create-dish').submit(function(event) {
+    event.preventDefault();
+    $('#orders').empty();
+    $('#menu').empty();
+    $("#menu").append($newDishForm)
+
+  });
+
+  const loadMenu = function () {
+    $.ajax({
+      url: "/api/dishes",
+      method: "GET",
+      success: function (dishes) {
+        renderAllMenu(dishes);
+      }
+    })
+
+  }
+
+  // Posts form to /api/dishes (Not working right now) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  ('.new-dish-form').submit(function (event) {
+    event.preventDefault();
+    const params = {
+      url: "/api/dishes/",
+      method: "POST",
+      data: $(this).serialize()
+    };
+
+    $.ajax(params)
+    .then((dishes) => {
+      loadMenu(dishes);
+      console.log(dishes);
+    })
+    .catch((error) => {
+      console.error(error);
+
+    })
+  })
+
+
 
 });
