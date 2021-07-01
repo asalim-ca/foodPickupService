@@ -16,7 +16,7 @@ const getSpecificOrder = (customerId, orderId) => {
 };
 
 const getAllUnfulfilledOrders = () => {
-  return db.query('SELECT * FROM orders WHERE finished_at IS NULL;')
+  return db.query('SELECT orders.id as order_id, * FROM orders JOIN customers ON customer_id = customers.id JOIN dishes ON dish_id = dishes.id WHERE finished_at IS NULL;')
     .then((response) => {
       return response.rows;
     });

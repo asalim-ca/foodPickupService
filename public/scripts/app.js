@@ -42,9 +42,35 @@ $(document).ready(function() {
     });
   };
 
+////////////////////
+
+  $('#all-unfulfilled-orders').submit(function(event) {
+    $('#orders').empty();
+    $('#menu').empty();
+
+    //prevents default action
+    event.preventDefault();
+
+    const params = {
+      url: `/admin/unfulfilledorders`,
+      method: "GET",
+      data: $(this).serialize()
+    };
+
+    $.ajax(params)
+      .then((unfulfilledorders) => {
+        renderAllOrders(unfulfilledorders);
+        console.log(unfulfilledorders);
+      });
+
+    //$('#orders').append("<h1>orders go here</h1>");
+
+  });
+////////////////////
+
 
   $('#all-orders').submit(function(event) {
-
+    $('#orders').empty();
     $('#menu').empty();
 
     //prevents default action
@@ -89,4 +115,4 @@ $(document).ready(function() {
 
   });
 
-}); 
+});

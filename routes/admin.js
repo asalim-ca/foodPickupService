@@ -18,15 +18,20 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   adminQueries.findAdminbyEmail(req.body.email)
     .then((response) => {
+
       if (response) {
+        console.log('response.id',response.id);
+        console.log('req.session',req.session);
         req.session.loginType = "admin";
         req.session.userId = response.id;
         return res.redirect("/")
-      }else{
-        return res.send("not logged in")
+      } else {
+        return res.send("Unable to login as an admin")
       }
     });
 });
+
+
 
 //Get unfulfilled orders
 router.get("/unfulfilledorders", (req, res) => {
