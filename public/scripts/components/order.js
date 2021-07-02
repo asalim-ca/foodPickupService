@@ -1,3 +1,7 @@
+
+
+
+
 const getOrderDishes = (order_id) => {
   return $.ajax({
     url: `/api/orders/${order_id}/dish_orders`,
@@ -36,6 +40,20 @@ const setToCompletedOrder = (order_id) => {
   })
 }
 
+
+// const getCustomerPhoneFromOrder = (order_id) => {
+//   return $.ajax({
+//     url: `/api/orders/${order_id}/customers-phone-number`,
+//     method: 'GET'
+//   })
+// }
+
+// const notifyBySMS = (phone) => {
+//   return $.ajax({
+//     url: `/notify/${phone}`,
+//     method: 'POST'
+//   })
+// }
 const renderOrder = (order) => {
   const $orderCard = $('<div>');
   $orderCard.attr('class', 'card');
@@ -47,7 +65,7 @@ const renderOrder = (order) => {
   $orderCardBody.attr('class', 'card-body');
   $orderCardBody.attr('style', 'margin: 0.5em');
 
-  if (!customer && !order.completed_at && order.ordered_at) {
+  if (!customerId && !order.completed_at && order.ordered_at) {
     const $completOrder = $('<button>').appendTo($orderCard);
     $completOrder.attr('type', 'button');
     $completOrder.attr('class', 'btn btn-danger');
@@ -57,6 +75,10 @@ const renderOrder = (order) => {
       setToCompletedOrder(order.id)
         .then(() => {
           $orderCard.empty();
+          // getCustomerPhoneFromOrder(order.id)
+          // .then((phone) => {
+          //   notifyBySMS(phone)
+          // })
         })
     })
   }
@@ -83,8 +105,9 @@ const renderOrder = (order) => {
           url: `/api/orders/confirm_order/${order.id}`,
           method: 'POST'
         })
-        .then((dish_order) => {
+        .then(() => {
           $('#current-order-dishes').empty();
+  
           // setToOrderId()
           //     .then((newToOrder) => {
           //       toOrderId = newToOrder[0].id;

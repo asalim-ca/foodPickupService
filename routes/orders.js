@@ -8,7 +8,7 @@
 const express = require('express');
 const router  = express.Router();
 
-module.exports = (db) => {
+module.exports = (db, smsClient) => {
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM orders;`)
       .then(data => {
@@ -28,6 +28,23 @@ module.exports = (db) => {
     `, [req.params.order_id])
       .then(data => {
         res.json(data.rows);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
+  router.get("/:order_id/customers-phone-number", (req, res) => {
+    db.query(`
+    SELECT customers.phone
+    FROM orders
+    JOIN customers ON customers.id = customer_id
+    WHERE orders.id = $1;
+    `, [req.params.order_id])
+      .then(data => {
+        res.json(data.rows[0].phone);
       })
       .catch(err => {
         res
@@ -99,6 +116,7 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+  
   router.post("/complete/:id", (req, res) => {
     db.query(`
     UPDATE orders
@@ -107,6 +125,7 @@ module.exports = (db) => {
     `, [req.params.id])
       .then(data => {
         res.json(data.rows);
+        
       })
       .catch(err => {
         res
@@ -114,6 +133,8 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  
   router.post("/confirm_order/:id", (req, res) => {
     db.query(`
     UPDATE orders

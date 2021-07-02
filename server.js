@@ -1,6 +1,9 @@
 // load .env data into process.env
 require('dotenv').config();
 
+
+
+
 // Web server config
 const PORT       = process.env.PORT || 8080;
 const ENV        = process.env.ENV || "development";
@@ -9,6 +12,11 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+
+//twilio
+// const accountSid = process.env.TWILIO_ACCOUNT_SID;
+// const authToken = process.env.TWILIO_AUTH_TOKEN;
+// const smsClient = require('twilio')(accountSid, authToken);
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -55,6 +63,16 @@ app.use("/api/orders", ordersRoutes(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+// app.post("/notify/:phone", (req, res) => {
+//   smsClient.messages
+//     .create({
+//       body: `Your order is ready for pickup`,
+//       from: '+12156076425',
+//       to: req.params.phone
+//     })
+//     .then(message => console.log(message.sid));
+// });
 
 app.listen(PORT, () => {
   console.log(`app listening on port ${PORT}`);
