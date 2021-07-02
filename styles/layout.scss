@@ -1,9 +1,13 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: #EEE;
+  #customer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 
-  h1 {
-    color: #244751;
+    #menu {
+    }
   }
 }
+

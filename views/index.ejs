@@ -6,26 +6,17 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/components/login.js"></script>
+    <script type="text/javascript" src="/scripts/components/customer.js"></script>
+    <script type="text/javascript" src="/scripts/components/dishes.js"></script>
+    <script type="text/javascript" src="/scripts/components/dish.js"></script>
+    <script type="text/javascript" src="/scripts/components/orders.js"></script>
+    <script type="text/javascript" src="/scripts/components/order.js"></script>
   </head>
-  <%- include('partials/_header')%>
-
   <body>
-    <%if(!user) {%>
-      <h1>Hello, Please login</h1>
-    <% } else {%>
-    <h1>Hello, <%= user.name%>, you are a <%= loginType%></h1>
-
-    <% } %>
-
-    <div id="main">
-      <div id="orders"></div>
-      <div id="menu"></div>
-    </div>
-
   </body>
 </html>
