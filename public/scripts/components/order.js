@@ -117,7 +117,7 @@ const renderOrder = (order) => {
         .catch((err) => console.log(err))
       });
     } else if (!customerId){
-      $('<h4>').attr('class', 'card-title').text(`Order #${order.id}`).appendTo($orderCardBody);
+      $('<h4>').attr('class', 'card-title').text(`Order #${order.id} - Customer: #${order.customer_id}`).appendTo($orderCardBody);
     }
   } else {
     $('<h4>').attr('class', 'card-title').text(`Order #${order.id}${order.completed_at ? '✅' : '⌛'}`).appendTo($orderCardBody);

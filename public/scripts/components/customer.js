@@ -5,7 +5,7 @@ const renderCustomerAccount = (customer, container) => {
 
   const $customerInfoBody = $('<div>').appendTo($customerInfo);
   $customerInfoBody.attr('class', 'card-body');
-  $('<h2>').attr('class', 'card-title').text(`${customer.name}`).appendTo($customerInfoBody);
+  $('<h2>').attr('class', 'card-title').text(`Customer: #${customer.id} - ${customer.name} - Phone: ${customer.phone}`).appendTo($customerInfoBody);
 
   showCustomerOrders(customer.id, $customerInfo);
 }
